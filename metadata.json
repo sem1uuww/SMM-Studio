@@ -1,0 +1,6 @@
+{
+  "name": "SMM Content Studio",
+  "description": "Профессиональный инструмент для быстрого превращения сырых заметок, идей и материалов в вовлекающий готовый контент для Telegram, VK и других платформ.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

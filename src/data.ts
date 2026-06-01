@@ -1,0 +1,178 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import { GenerationProfile, GenerationProject, GenerationSettings } from './types';
+
+export const defaultSettings: GenerationSettings = {
+  platform: 'Telegram',
+  contentType: 'Пост',
+  toneOfVoice: 'Профессиональная',
+  creativity: 50,
+  length: 'Medium',
+  structure: {
+    header: true,
+    subtitle: true,
+    paragraphs: true,
+    lists: true,
+    cta: true,
+    conclusion: false,
+  },
+  emojiLevel: 'Moderate',
+  ctaGoal: 'Подписаться',
+  customCta: '',
+  brandStyle: '',
+  addHashtags: true,
+  useStorytelling: false,
+  addSocialProof: false,
+  addDeadline: false,
+  boostEngagement: true,
+  boostSales: false,
+  boostExpertise: true,
+  useQuestions: true,
+  addCommentCall: true,
+};
+
+export const prebuiltProfiles: GenerationProfile[] = [
+  {
+    id: 'tg-business',
+    name: 'Telegram для бизнеса',
+    settings: {
+      ...defaultSettings,
+      platform: 'Telegram',
+      contentType: 'Продающий текст',
+      toneOfVoice: 'Деловая',
+      creativity: 40,
+      length: 'Medium',
+      emojiLevel: 'Minimum',
+      ctaGoal: 'Оставить заявку',
+      boostSales: true,
+      addSocialProof: true,
+    },
+  },
+  {
+    id: 'tg-personal',
+    name: 'Telegram для личного бренда',
+    settings: {
+      ...defaultSettings,
+      platform: 'Telegram',
+      contentType: 'История клиента',
+      toneOfVoice: 'Дружелюбная',
+      creativity: 75,
+      length: 'Medium',
+      emojiLevel: 'Moderate',
+      ctaGoal: 'Подписаться',
+      useStorytelling: true,
+      boostEngagement: true,
+      useQuestions: true,
+    },
+  },
+  {
+    id: 'vk-shop',
+    name: 'VK для магазина',
+    settings: {
+      ...defaultSettings,
+      platform: 'VK',
+      contentType: 'Рекламный пост',
+      toneOfVoice: 'Энергичная',
+      creativity: 55,
+      length: 'Short',
+      emojiLevel: 'Many',
+      ctaGoal: 'Купить',
+      boostSales: true,
+      addDeadline: true,
+      addHashtags: true,
+    },
+  },
+  {
+    id: 'tg-news',
+    name: 'Telegram для новостей',
+    settings: {
+      ...defaultSettings,
+      platform: 'Telegram',
+      contentType: 'Новость',
+      toneOfVoice: 'Нейтральная',
+      creativity: 15,
+      length: 'Short',
+      emojiLevel: 'Minimum',
+      ctaGoal: 'Перейти по ссылке',
+      structure: {
+        header: true,
+        subtitle: false,
+        paragraphs: true,
+        lists: false,
+        cta: true,
+        conclusion: false,
+      },
+      addHashtags: true,
+    },
+  },
+  {
+    id: 'tg-expert',
+    name: 'Telegram для экспертного блога',
+    settings: {
+      ...defaultSettings,
+      platform: 'Telegram',
+      contentType: 'Обучающий материал',
+      toneOfVoice: 'Экспертная',
+      creativity: 60,
+      length: 'Long',
+      emojiLevel: 'Minimum',
+      ctaGoal: 'Написать',
+      boostExpertise: true,
+      useQuestions: true,
+      addCommentCall: true,
+    },
+  },
+];
+
+export const initialHistory: GenerationProject[] = [
+  {
+    id: 'demo-1',
+    title: 'Открытие кофейни Specialty Coffee',
+    inputText: 'Мы открываем новую specialty кофейню "Зёрна" в центре Питера. У нас свежая обжарка из Эфиопии и Колумбии, выпечка собственного производства. Каждую субботу проводим каппинги для гостей. Дарим скидку 15% на первый заказ по промокоду COFFEE15.',
+    extraContext: 'Пишите в сочном и очень уютном петербургском стиле. Подчеркните, что у нас можно работать с ноутбуком.',
+    attachments: [],
+    settings: {
+      ...defaultSettings,
+      platform: 'Telegram',
+      contentType: 'Анонс',
+      toneOfVoice: 'Дружелюбная',
+      creativity: 70,
+      length: 'Medium',
+      emojiLevel: 'Moderate',
+      ctaGoal: 'Перейти по ссылке',
+      customCta: 'Забронировать столик',
+      useStorytelling: true,
+      addDeadline: false,
+      addHashtags: true,
+      addSocialProof: false,
+      boostEngagement: true,
+      boostSales: true,
+      boostExpertise: false,
+      useQuestions: true,
+      addCommentCall: true,
+    },
+    timestamp: '2026-05-31T08:30:00Z',
+    isFavorite: true,
+    results: {
+      analysis: {
+        goal: 'Привлечь первых посетителей в новую кофейню в Санкт-Петербурге и стимулировать бронирование столов через скидку 15%.',
+        audience: 'Жители Санкт-Петербурга, фрилансеры, ценители качественного спешелти кофе и уютной петербургской атмосферы.',
+        structure: 'Захватывающий заголовок с питерским колоритом, атмосферное описание вкуса и духа, список преимуществ (ноутбуки, каппинги) и сильный призыв к действию с промокодом.',
+      },
+      mainVariant: `☕️ **Кофе, дожди и ноутбуки: уютное открытие «Зёрен» на Петроградке**\n\nЗнаете это чувство, когда осенний питерский ветер ласково подталкивает вас открыть тяжелую деревянную дверь, за которой пахнет свежевыпеченными круассанами и спелым бергамотом? Рады познакомиться! Мы — кофейня **«Зёрна»**, и мы официально открылись в самом сердце Петербурга.\n\nУ нас нет компромиссов в качестве. Мы завариваем только specialty зерно свежей обжарки. Сегодня в воронке — яркая Эфиопия с нотами персика, а в эспрессо-машине — плотная шоколадная Колумбия.\n\n**Почему вам захочется остаться у нас подольше?**\n\n💻 **Рай для фрилансеров:** у нас быстрый Wi-Fi, розетки у каждого столика и идеальный мягкий свет для комфортной работы за ноутбуком.\n🥐 **Своя выпечка:** теплые синабоны и круассаны, которые выпекаются прямо на месте каждые 2 часа.\n🥄 **Субботние каппинги:** каждую неделю бесплатно знакомим гостей с миром профессионального кофе (научим отличать Руанду от Сальвадора!).\n\n🎉 В честь открытия дарим **скидку 15%** на любой напиток и десерт по секретному промокоду **COFFEE15**!\n\n👇 Нажмите кнопку ниже, чтобы забронировать столик или построить маршрут к нам прямо сейчас!\n\n[Забронировать столик ☕️](https://example.com)\n\n#петербург #кофепитер #спешелтикофе #кофейняспб #гдепоработать`,
+      alternatives: [
+        {
+          title: 'Короткий & Дерзкий',
+          text: `⚡️ **Новая точка на кофейной карте Питера: «Зёрна»**\n\nХватит пить пережженный коммерческий кофе! На Петроградке открылось пространство, где зерно уважают.\n\nУ нас:\n- Эфиопия и Колумбия свежайшей обжарки 🔥\n- Розетки + Wi-Fi для тех, кто вечно стирает пальцы в Google Docs 💻\n- Бесплатные субботние каппинги (прокачай свой рецепторный опыт).\n\nЗабегай согреться! Скидка 15% по промокоду **COFFEE15**.\n\n👉 Ссылка на маршрут: https://example.com`,
+        },
+        {
+          title: 'Сторителлинг / Личный опыт',
+          text: `История о том, как мы искали «ту самую» кислинку в Эфиопии...\n\nМы объездили десяток обжарщиков и выпили столько литров кофе, что спать не получалось трое суток. Всё ради того, чтобы в нашей новой кофейне «Зёрна» вы сделали первый глоток и сказали: «О да, это шедевр!».\n\nЗатихайте в мягком кресле с ноутбуком, берите миндальный круассан и чувствуйте себя так, будто Петербург создан именно для этого момента. Ждем вас на Петроградке!\n\nПромокод на скидку 15%: **COFFEE15**.\n\nНапишите в комментариях, какой кофе вы предпочитаете: плотный шоколадный или легкий ягодный? 👇`,
+        },
+      ],
+    },
+  },
+];
