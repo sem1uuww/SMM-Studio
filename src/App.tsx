@@ -605,12 +605,13 @@ export default function App() {
           className="flex items-center gap-3.5 cursor-pointer group select-none"
           title="Вернуться в Главное Меню"
         >
-          <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-pink-500 via-indigo-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-indigo-500/20 glow-indigo transition-transform group-hover:scale-105 active:scale-95">
-            <Sparkles className="w-5.5 h-5.5 text-white" />
+          <div className="w-10 h-10 md:w-11 md:h-11 rounded-xl bg-gradient-to-tr from-pink-500 via-indigo-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-indigo-500/20 glow-indigo transition-transform group-hover:scale-105 active:scale-95">
+            <Sparkles className="w-5 h-5 md:w-5.5 md:h-5.5 text-white" />
           </div>
           <div>
-            <h1 className={`text-xl font-extrabold tracking-tight font-display flex items-center gap-2 transition-colors ${isDark ? 'text-white' : 'text-slate-900 group-hover:text-indigo-600'}`}>
-              Студия SMM Контента
+            <h1 className={`text-base sm:text-lg md:text-xl font-extrabold tracking-tight font-display flex items-center gap-2 transition-colors ${isDark ? 'text-white' : 'text-slate-900 group-hover:text-indigo-600'}`}>
+              <span className="hidden sm:inline">Студия SMM Контента</span>
+              <span className="sm:hidden">SMM Студия</span>
             </h1>
           </div>
         </div>
@@ -628,11 +629,11 @@ export default function App() {
           <button
             id="home_router_btn"
             onClick={() => setViewMode('dashboard')}
-            className={`flex items-center gap-2 px-4 py-2.5 text-xs font-black uppercase tracking-wider rounded-xl border transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer ${viewMode === 'dashboard' ? (isDark ? 'bg-indigo-650/20 border-indigo-500 text-white shadow-md' : 'bg-indigo-50 border-indigo-300 text-indigo-700 font-extrabold') : (isDark ? 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200' : 'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200')}`}
+            className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 text-xs font-black uppercase tracking-wider rounded-xl border transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer ${viewMode === 'dashboard' ? (isDark ? 'bg-indigo-650/20 border-indigo-500 text-white shadow-md' : 'bg-indigo-50 border-indigo-300 text-indigo-700 font-extrabold') : (isDark ? 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200' : 'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200')}`}
             title="Вернуться в главное меню"
           >
             <Home className="w-4 h-4" />
-            <span>Панель</span>
+            <span className="hidden sm:inline">Панель</span>
           </button>
 
           {/* Theme switcher */}
@@ -649,10 +650,10 @@ export default function App() {
           <button
             id="new_proj_header_btn"
             onClick={handleNewProject}
-            className="flex items-center gap-2 px-4 py-2.5 text-xs font-black uppercase tracking-wider rounded-xl border border-solid transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.97] hover:shadow-lg hover:shadow-indigo-500/10 cursor-pointer bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 border-indigo-500 text-white"
+            className="flex items-center gap-2 px-3 sm:px-4 py-2.5 text-xs font-black uppercase tracking-wider rounded-xl border border-solid transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.97] hover:shadow-lg hover:shadow-indigo-500/10 cursor-pointer bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 border-indigo-500 text-white"
           >
             <Plus className="w-4 h-4" />
-            <span>Создать</span>
+            <span className="hidden sm:inline">Создать</span>
           </button>
         </div>
       </header>
@@ -1059,7 +1060,7 @@ export default function App() {
             </div>
 
             {/* LEFT PANEL CONTROLS - Takes 30% spacing (3 columns of 10) */}
-            <aside className="lg:col-span-3 flex flex-col gap-5">
+            <aside className="lg:col-span-3 flex flex-col gap-5 order-2 lg:order-1">
             
             {/* Tabs for parameters vs history archive */}
             <div className={`p-2 rounded-2xl flex gap-1.5 border transition-all duration-300 ${isDark ? 'bg-[#0a0f1d] border-slate-800/80' : 'bg-slate-100 border-slate-200'}`}>
@@ -1515,7 +1516,7 @@ export default function App() {
           </aside>
 
           {/* RIGHT WORKZONE CANVAS - Takes 70% spacing (7 columns of 10) */}
-          <section className="lg:col-span-7 flex flex-col gap-6">
+          <section className="lg:col-span-7 flex flex-col gap-6 order-1 lg:order-2">
             
             {/* BRAND PROFILE WIDGET */}
             <div className={`p-4 md:p-5 rounded-3xl border transition-all duration-300 relative overflow-hidden ${
